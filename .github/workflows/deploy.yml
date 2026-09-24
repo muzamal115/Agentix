@@ -82,6 +82,9 @@ jobs:
       - name: Push Billing
         run: docker push $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/billing-service:latest
 
+      - name: Check AWS CLI
+        run: |
+         aws --version
       # Deploy Gateway
       - name: Deploy Gateway
         run: aws ecs update-service --cluster ${{ secrets.ECS_CLUSTER }} --service ${{ secrets.GATEWAY_SERVICE }} --force-new-deployment
