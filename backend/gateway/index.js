@@ -20,7 +20,7 @@ app.use(cors({
 const port=process.env.PORT
 app.use(morgan("dev"))
 app.get('/',(req,res)=>{
-    return res.json({response:"Hello from gateway"})
+    return res.json({response:"Hello from gateway v4"})
 })
 app.get('/api/me',protect,getCurrentUser)
 app.use('/api/auth',proxyWithHeader(process.env.AUTH_SERVICE))
